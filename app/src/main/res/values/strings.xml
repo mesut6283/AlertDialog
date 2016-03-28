@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AlertDialog</string>
+    <string name="button">تست خنگولی</string>
+    <string name="title">تست خنگولی</string>
+    <string name="message">آیا من خنگولم؟</string>
+    <string name="Yes">YES</string>
+    <string name="No">NO</string>
+</resources>
