@@ -1,6 +1,7 @@
 package com.masoud.example.alertdialog;
 
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    public MediaPlayer player;
+    public int playok=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +21,23 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(playok==0){
+                player=MediaPlayer.create(MainActivity.this,R.raw.pat_mat);
+                player.setLooping(true);
+                player.setVolume(100,100);
+                player.start();
+                playok=1;}
 
                 ShowAlertDialog();
+            }
+        });
+
+Button stopButton=(Button)findViewById(R.id.button2);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.stop();
+                playok=0;
             }
         });
     }
